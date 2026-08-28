@@ -25,10 +25,6 @@ export default function LiveBackground() {
             <stop offset="0%" stopColor="#4ADE80" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#4ADE80" stopOpacity="0.005" />
           </linearGradient>
-          <linearGradient id="wave5Live" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.09" />
-            <stop offset="100%" stopColor="#FFD700" stopOpacity="0.005" />
-          </linearGradient>
         </defs>
         
         {/* Wave 1 - Purple - Optimized */}
@@ -97,62 +93,25 @@ export default function LiveBackground() {
             ]
           }}
           transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        
-        {/* Wave 5 - Gold - Optimized */}
-        <motion.path
-          d="M0,100 L0,82 Q40,75 80,84 Q120,93 160,85 L160,100 Z"
-          fill="url(#wave5Live)"
-          animate={{
-            d: [
-              "M0,100 L0,82 Q40,75 80,84 Q120,93 160,85 L160,100 Z",
-              "M0,100 L0,82 Q40,90 80,81 Q120,72 160,82 L160,100 Z",
-              "M0,100 L0,82 Q40,75 80,84 Q120,93 160,85 L160,100 Z"
-            ]
-          }}
-          transition={{
-            duration: 18,
+            duration: 20,
             repeat: Infinity,
             ease: "linear"
           }}
         />
       </svg>
 
-      {/* Floating gradient orbs - Optimized */}
+      {/* Floating gradient orbs - Super Optimized */}
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[100px]"
+        className="absolute w-[500px] h-[500px] rounded-full blur-[80px]"
         style={{
           top: '10%',
           left: '5%',
           background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)',
-          opacity: 0.1
+          opacity: 0.08,
+          willChange: 'opacity'
         }}
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.15, 0.1]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-      
-      <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full blur-[100px]"
-        style={{
-          top: '50%',
-          right: '10%',
-          background: 'radial-gradient(circle, #E87BA8 0%, transparent 70%)',
-          opacity: 0.08
-        }}
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.08, 0.13, 0.08]
+          opacity: [0.08, 0.12, 0.08]
         }}
         transition={{
           duration: 25,
@@ -162,16 +121,16 @@ export default function LiveBackground() {
       />
       
       <motion.div
-        className="absolute w-[550px] h-[550px] rounded-full blur-[100px]"
+        className="absolute w-[450px] h-[450px] rounded-full blur-[80px]"
         style={{
-          bottom: '5%',
-          left: '30%',
-          background: 'radial-gradient(circle, #4ADE80 0%, transparent 70%)',
-          opacity: 0.07
+          bottom: '10%',
+          right: '5%',
+          background: 'radial-gradient(circle, #E87BA8 0%, transparent 70%)',
+          opacity: 0.06,
+          willChange: 'opacity'
         }}
         animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.07, 0.12, 0.07]
+          opacity: [0.06, 0.1, 0.06]
         }}
         transition={{
           duration: 30,
@@ -180,26 +139,25 @@ export default function LiveBackground() {
         }}
       />
 
-      {/* Floating particles - reduced to 12 for performance */}
-      {[...Array(12)].map((_, i) => (
+      {/* Floating particles - reduced to 6 for better performance */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
-            background: i % 4 === 0 ? '#8B5CF6' : i % 4 === 1 ? '#E87BA8' : i % 4 === 2 ? '#6272D9' : '#4ADE80',
+            background: i % 3 === 0 ? '#8B5CF6' : i % 3 === 1 ? '#E87BA8' : '#6272D9',
+            willChange: 'transform, opacity'
           }}
           animate={{
-            y: [0, -50 - Math.random() * 50, 0],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [1, 1.5 + Math.random(), 1]
+            y: [0, -60, 0],
+            opacity: [0.3, 0.7, 0.3]
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
+            duration: 6 + i * 2,
             repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: "easeInOut"
+            ease: "linear"
           }}
         />
       ))}
