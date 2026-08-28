@@ -18,24 +18,26 @@ export default function Hero() {
               y: [0, -8, 0]
             }}
             transition={{
-              duration: 4,
+              duration: 5,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "linear"
             }}
           >
-            {/* Glow effect */}
+            {/* Glow effect - simplified */}
             <motion.div
-              className="absolute inset-0 blur-3xl"
+              className="absolute inset-0 blur-2xl"
               style={{
                 background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)',
+                opacity: 0.5,
+                willChange: 'opacity'
               }}
               animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.4, 0.7, 0.4]
+                opacity: [0.4, 0.6, 0.4]
               }}
               transition={{
-                duration: 3,
-                repeat: Infinity
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear"
               }}
             />
             <AnimatedGesture type="slowBlink" size={180} color="#8B5CF6" autoPlay />
